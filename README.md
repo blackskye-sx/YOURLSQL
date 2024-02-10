@@ -13,3 +13,10 @@ This fork is currently in alpha and it will be unuseable for the time being.
 ## License
 
 YOURLSQL is released under the [MIT license](LICENSE).
+
+
+### TO DO 
+
+- rename everything from "mysql" to "ydbsql"
+- create a file that will hold all SQL statements. The first version will be the mysql statements only. It will be expanded later to include postgresql and sqlite
+- ...
