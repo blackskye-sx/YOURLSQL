@@ -12,7 +12,7 @@ This fork is currently in alpha and it will be unuseable for the time being.
 
 ## License
 
-YOURLSQL is released under the [MIT license](LICENSE).
+YOURLSQL will be released under the [MIT license](LICENSE).
 
 
 ### TO DO 
