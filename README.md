@@ -19,10 +19,41 @@ YOURLSQL will be released under the [MIT license](LICENSE).
 
 ### TO DO 
 
-- rename everything from "mysql" to "ydbsql"
+
 - create a file that will hold all SQL statements. The first version will be the mysql statements only. It will be expanded later to include postgresql and sqlite
 - work on separating out mysql
 - create "drivers" for postgres and sqlite
 - ...
 - ...
 - ...
+
+
+- rename everything from "mysql" to "ydbsql"
+-- includes\class-mysql.php
+-- 'mysql_version'      => yourls_get_db()->mysql_version(),
+-- return yourls_sanitize_version(yourls_get_db()->mysql_version());
+-- 
+
+    public function include_db_files() {
+        // Attempt to open drop-in replacement for the DB engine else default to core engine
+        $file = YOURLS_USERDIR . '/db.php';
+        $attempt = false;
+        if(file_exists($file)) {
+            $attempt = yourls_include_file_sandbox( $file );
+            // Check if we have an error to display
+            if ( is_string( $attempt ) ) {
+                yourls_add_notice( $attempt );
+            }
+        }
+
+        // Fallback to core DB engine
+        if ( $attempt !== true ) {
+            require_once YOURLS_INC . '/class-mysql.php';
+            yourls_db_connect();
+        }
+    }
+
+    public function mysql_version() {
+        $version = $this->pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+        return $version;
+    }

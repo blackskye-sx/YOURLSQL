@@ -10,6 +10,11 @@
  ** MySQL settings - You can get this info from your web host
  */
 
+/** Database type */
+/**
+ * define( 'YOURLS_DB_DRIVER', 'mysql/pgsql/sqlite');
+ */
+
 /** MySQL database username */
 define( 'YOURLS_DB_USER', 'your db user name' );
 
@@ -23,6 +28,10 @@ define( 'YOURLS_DB_NAME', 'yourls' );
 /** MySQL hostname.
  ** If using a non standard port, specify it like 'hostname:port', e.g. 'localhost:9999' or '127.0.0.1:666' */
 define( 'YOURLS_DB_HOST', 'localhost' );
+
+/** Schema? optional
+ * define( 'YOURLS_DB_SCHEMA', 'yourls schema');
+ */
 
 /** MySQL tables prefix
  ** YOURLS will create tables using this prefix (eg `yourls_url`, `yourls_options`, ...)
